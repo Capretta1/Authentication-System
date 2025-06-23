@@ -2,14 +2,33 @@
 
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 function Login() {
+  const router = useRouter();
   const [user, setUser] = React.useState({
     email: "",
     password: "",
   });
 
-  const onLogin = async () => {};
+  const [loading, isLoading] = React.useState(false);
+
+  const onLogin = async () => {
+    try {
+      isLoading(true);
+      const response = await axios.post("/api/users/login", user);
+      console.log("signup success", response.data);
+      toast.success("Signup successful");
+      // Simulate successful signup, then redirect
+      router.push("/profile");
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      isLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Vibrant background image */}
