@@ -42,7 +42,9 @@ function Login() {
       {/* Glassmorphism login form card */}
       <div className="relative z-10 w-full max-w-md bg-white/70 backdrop-blur-md rounded-2xl shadow-2xl p-8 flex flex-col items-center">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h1>
-        <p className="text-gray-500 mb-6 text-sm">Login to your account</p>
+        <p className="text-gray-500 mb-6 text-sm">
+          {loading ? "Processing" : "Login to continue"}
+        </p>
         <form
           className="w-full flex flex-col gap-4"
           onSubmit={(e) => {
