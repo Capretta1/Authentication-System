@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 connectDB();
 
 //register a new user
-export async function post(request: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const { username, email, password } = reqBody;

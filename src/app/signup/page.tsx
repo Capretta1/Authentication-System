@@ -2,15 +2,35 @@
 
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 function SignUp() {
+  const router = useRouter();
   const [user, setUser] = React.useState({
     email: "",
     password: "",
     username: "",
   });
 
-  const onSignUp = async () => {};
+  const [loading, isLoading] = React.useState(false);
+
+  const onSignUp = async () => {
+    try {
+      isLoading(true);
+      const response = await axios.post("/api/users/signup", user);
+      console.log("signup success", response.data);
+      toast.success("Signup successful");
+      // Simulate successful signup, then redirect
+      router.push("/login");
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      isLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Authentication-themed background image for signup (different from login and main) */}
@@ -26,7 +46,9 @@ function SignUp() {
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
           Create Account
         </h1>
-        <p className="text-gray-500 mb-6 text-sm">Sign up to get started</p>
+        <p className="text-gray-700 mb-6 text-sm">
+          {loading ? "Processing" : "Signup to join"}
+        </p>
         <form
           className="w-full flex flex-col gap-4"
           onSubmit={(e) => {
@@ -92,9 +114,10 @@ function SignUp() {
             type="submit"
             className="w-full py-2 mt-2 bg-purple-600 text-black font-semibold rounded-lg shadow-md hover:bg-purple-700 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-400"
           >
-            Sign Up
+            sign up
           </button>
         </form>
+
         <div className="mt-6 text-sm text-black">
           Already have an account?{" "}
           <Link
