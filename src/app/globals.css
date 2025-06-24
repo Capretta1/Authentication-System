@@ -24,3 +24,122 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out;
+}
+
+@keyframes hero-rotate-pulse {
+  0% {
+    transform: rotate(12deg) scale(1);
+  }
+  50% {
+    transform: rotate(-8deg) scale(1.08);
+  }
+  100% {
+    transform: rotate(12deg) scale(1);
+  }
+}
+.animate-hero-rotate-pulse {
+  animation: hero-rotate-pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s infinite;
+}
+
+@keyframes float-cube {
+  0%,
+  100% {
+    transform: translateY(0) rotate3d(1, 1, 0, 30deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate3d(1, 1, 0, 40deg);
+  }
+}
+.animate-float-cube {
+  animation: float-cube 5s infinite ease-in-out;
+}
+@keyframes float-cube2 {
+  0%,
+  100% {
+    transform: translateY(0) rotate3d(1, 0.5, 0, 40deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate3d(1, 0.5, 0, 50deg);
+  }
+}
+.animate-float-cube2 {
+  animation: float-cube2 6s infinite ease-in-out;
+}
+
+@keyframes feature-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-feature-float {
+  animation: feature-float 4s infinite ease-in-out;
+}
+.animate-feature-float2 {
+  animation: feature-float 4.5s infinite ease-in-out 0.5s;
+}
+.animate-feature-float3 {
+  animation: feature-float 5s infinite ease-in-out 1s;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+}
+.animate-particle-float {
+  animation: particle-float 3s infinite ease-in-out;
+}

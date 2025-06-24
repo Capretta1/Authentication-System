@@ -70,6 +70,7 @@ export async function POST(request: NextRequest) {
     let message = "Something went wrong";
     if (error instanceof Error) {
       message = error.message;
+      return NextResponse.json({ error: message }, { status: 500 });
     }
     return NextResponse.json({ error: message }, { status: 500 });
   }
